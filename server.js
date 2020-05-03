@@ -22,7 +22,7 @@ const app = express();
 app.use(bodyParser.json());
 app.use(cors());
 
-app.get('/', (req, res)=> {res.send(db.users);});
+app.get('/', (req, res)=> {res.send('it is working!');});
 
 app.post('/imageUrl', (req, res) => {image.handleApiCall(req, res)});
 app.post('/signIn', (req, res) => {signIn.handleSignIn(req, res, db, bcrypt)});
