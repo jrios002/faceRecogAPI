@@ -20,7 +20,7 @@ const db = knex({
 	}
 });
 
-app.get('/', (req, res)=> {res.send(`app is running on port ${process.env.DATABASE_URL} lets try again`);});
+//app.get('/', (req, res)=> {res.send('it is working!!');});
 
 app.post('/imageUrl', (req, res) => {image.handleApiCall(req, res)});
 app.post('/signIn', (req, res) => {signIn.handleSignIn(req, res, db, bcrypt)});
