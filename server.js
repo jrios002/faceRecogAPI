@@ -12,9 +12,7 @@ const db = knex({
 	client: 'pg',
 	connection: {
 		host: 'postgresql-spherical-87913',
-		user: 'postgres',
-		password: '123',
-		database: 'postgres'
+		ssl: true
 	}
 });
 
