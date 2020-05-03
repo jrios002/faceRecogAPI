@@ -8,17 +8,19 @@ const signIn = require('./controllers/signIn');
 const profile = require('./controllers/profile');
 const image = require('./controllers/image');
 
-const app = express();
-app.use(bodyParser.json());
-app.use(cors());
-
 const db = knex({
 	client: 'pg',
 	connection: {
-		connectionString: process.env.DATABASE_URL,
-  		ssl: true,
+		host: '127.0.0.1',
+		user: 'postgres',
+		password: '123',
+		database: 'postgres'
 	}
 });
+
+const app = express();
+app.use(bodyParser.json());
+app.use(cors());
 
 app.get('/', (req, res)=> {res.send('it is working!');});
 
@@ -29,5 +31,5 @@ app.get('/profile/:id', (req, res) => {profile.handleProfile(req, res, db)});
 app.put('/image', (req, res) => {image.handleImage(req, res, db)});
 
 app.listen(process.env.PORT || 3001, ()=> {
-	console.log(`app is running on port ${process.env.PORT}``);
+	console.log('app is running on port ${process.env.PORT}');
 });
